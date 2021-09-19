@@ -5,7 +5,7 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <title>学习计时器</title>
+ <title>Document</title>
  <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
@@ -56,9 +56,12 @@
   }
   window.onload = function() {
    //点击开始建 开始计数
+   var cs;
    var count = 0
    var timer = null //timer变量记录定时器setInterval的返回值
    $("start").onclick = function() {
+     if(cs) return;
+     cs=1;
     timer = setInterval(function() {
      count++;
      console.log(count)
@@ -71,6 +74,7 @@
    }
    $("pause").onclick = function() {
      //取消定时器
+     cs=0;
      clearInterval(timer)
     }
     //停止记数 数据清零 页面展示数据清零
